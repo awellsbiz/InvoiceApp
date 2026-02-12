@@ -17,12 +17,24 @@ function App() {
   return (
     <>
       <div>
-        <h1>Hello World</h1>
+        <h1>Hello World from the frontend</h1>
         <form onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" />
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
-          <button type="submit">Add User</button>
+          <button
+            //use basic tailwindcss to style the button
+            style={{
+              backgroundColor: "blue",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            type="submit"
+          >
+            Add User
+          </button>
         </form>
       </div>
     </>
