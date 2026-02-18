@@ -15,11 +15,14 @@ app.get("/health", (c) => c.text("OK status"));
 
 app.post("/users", async (c) => {
   const body = await c.req.json();
-  const user = await db.insert(usersTable).values({
-    name: body.name,
-    email: body.email,
-    password: body.password,
-  });
+  const [user] = await db
+    .insert(usersTable)
+    .values({
+      name: body.name,
+      email: body.email,
+      password: body.password,
+    })
+    .returning();
   return c.json(user);
 });
 
